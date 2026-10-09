@@ -50,7 +50,7 @@ The dataset does not provide row-level fault labels. Four reported air-leak/high
 
 ## 4. Analysis and modeling workflow
 
-<p align="center"><img src="docs/assets/analysis_pipeline.svg" alt="Project analysis workflow from sensor history to review" width="100%"></p>
+<p align="center"><img src="docs/assets/project_goal_map.svg" alt="Project goal map from observing data to future validation" width="100%"></p>
 
 1. **Data understanding** — verify the supplied file, its schema, timestamps, sampling cadence, data quality, sensor distributions, and the accompanying event documentation.
 2. **Window design** — compare candidate durations using the observed cadence and operating-state dwell behavior. Preserve chronology and break segments at timestamp gaps greater than 30 seconds.
