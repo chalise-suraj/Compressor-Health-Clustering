@@ -23,6 +23,8 @@ streamlit run app.py
 
 The dashboard requires the saved files in `data/processed/` and model metadata in `models/`. If they are missing, run the notebooks in order.
 
+The dashboard includes shared date, cluster, and unusual-window filters; an operating-state overview; retrospective event review; a sortable window explorer with CSV export; and five contrast-paired interface palettes, including Graphite. It reads local saved outputs only and does not connect to compressor equipment. Browser error details are disabled so Streamlit does not expose local source paths in its UI.
+
 ## Method and limitations
 
 The current workflow uses non-overlapping 5-minute windows, splits long timestamp gaps, and evaluates a chronological holdout. The saved k=4 pipeline is exploratory; notebook 03 found that k=3 warrants comparison. Reported air-leak/high-stress periods are retrospective annotations and are not row-level labels. Cluster shifts and distance alerts need investigation and do not confirm faults or provide prospective prediction.
