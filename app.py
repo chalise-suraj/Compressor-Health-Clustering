@@ -17,6 +17,7 @@ FEATURES_FILE = PROCESSED / "metropt_window_features_5min.csv"
 EVENTS_FILE = PROCESSED / "metropt_reported_event_summary_5min.csv"
 TRANSITIONS_FILE = PROCESSED / "metropt_cluster_transitions_5min.csv"
 MODEL_FILE = ROOT / "models" / "kmeans_metadata_5min.json"
+HERO_IMAGE = ROOT / "assets" / "compressor_hero.png"
 
 THEMES = {
     "Field Notes": {
@@ -247,7 +248,10 @@ with header_left:
         unsafe_allow_html=True,
     )
 with header_right:
-    st.markdown('<div class="status-pill">HISTORICAL DATA<br>LOCAL ANALYSIS</div>', unsafe_allow_html=True)
+    if HERO_IMAGE.is_file():
+        st.image(HERO_IMAGE, caption="MetroPT-3 · compressor station", use_container_width=True)
+    else:
+        st.markdown('<div class="status-pill">HISTORICAL DATA<br>LOCAL ANALYSIS</div>', unsafe_allow_html=True)
 st.write("")
 
 if not require_outputs():
@@ -317,7 +321,7 @@ st.write("")
 
 active_view = st.segmented_control(
     "Dashboard section", ["Overview", "Event review", "Window explorer"],
-    horizontal=True, label_visibility="collapsed",
+    default="Overview", label_visibility="collapsed",
 )
 if active_view == "Overview":
     if filtered.empty:
