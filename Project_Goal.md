@@ -1,5 +1,7 @@
 # Project Goal — Compressor Health Clustering
 
+<p align="center"><img src="docs/assets/project_goal_banner.svg" alt="Project goal — explore historical behavior and define validation needs" width="100%"></p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Operating%20behavior-147D74?style=for-the-badge" alt="Operating behavior analysis">
   <img src="https://img.shields.io/badge/Data-MetroPT--3-3776AB?style=for-the-badge" alt="MetroPT-3 data">

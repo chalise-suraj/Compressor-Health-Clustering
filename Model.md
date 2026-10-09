@@ -1,5 +1,7 @@
 # Compressor Operating-Behavior Model
 
+<p align="center"><img src="docs/assets/model_banner.svg" alt="Compressor Operating-Behavior Model — five-minute features and provisional K-Means" width="100%"></p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Algorithm-K--Means-147D74?style=for-the-badge" alt="K-Means">
   <img src="https://img.shields.io/badge/Window-5%20minutes-3776AB?style=for-the-badge" alt="Five-minute windows">
