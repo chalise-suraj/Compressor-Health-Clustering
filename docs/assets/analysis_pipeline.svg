@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="570" viewBox="0 0 1600 570" role="img" aria-labelledby="title desc">
+  <title id="title">Compressor analysis pipeline</title>
+  <desc id="desc">Five stages from raw sensor records through five-minute features, provisional clustering, retrospective monitoring, and dashboard review.</desc>
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f2eb"/>
+      <stop offset="1" stop-color="#e8e7df"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#89918c"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#35413d" flood-opacity=".11"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="570" rx="20" fill="url(#canvas)"/>
+  <text x="72" y="70" fill="#a54b32" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">FROM SENSOR RECORDS TO REVIEWABLE EVIDENCE</text>
+  <text x="72" y="116" fill="#26302d" font-family="Georgia, Times New Roman, serif" font-size="35">A chronological, leakage-aware workflow</text>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <path d="M335 274H382M635 274H682M935 274H982M1235 274H1282" stroke="#89918c" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g filter="url(#shadow)">
+      <rect x="70" y="166" width="265" height="225" rx="12" fill="#fffefa" stroke="#d6d4ca"/>
+      <rect x="70" y="166" width="265" height="7" rx="4" fill="#527b82"/>
+      <text x="96" y="210" fill="#a54b32" font-size="13" font-weight="700" letter-spacing="2">01  /  INSPECT</text>
+      <text x="96" y="253" fill="#26302d" font-family="Georgia, serif" font-size="26">Raw sensor data</text>
+      <text x="96" y="292" fill="#66716b" font-size="16">1.52M timestamped rows</text>
+      <text x="96" y="320" fill="#66716b" font-size="16">10-second observed cadence</text>
+      <text x="96" y="348" fill="#66716b" font-size="16">Preserve gaps and chronology</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="385" y="166" width="250" height="225" rx="12" fill="#fffefa" stroke="#d6d4ca"/>
+      <rect x="385" y="166" width="250" height="7" rx="4" fill="#688765"/>
+      <text x="411" y="210" fill="#a54b32" font-size="13" font-weight="700" letter-spacing="2">02  /  SUMMARIZE</text>
+      <text x="411" y="253" fill="#26302d" font-family="Georgia, serif" font-size="26">5-minute windows</text>
+      <text x="411" y="292" fill="#66716b" font-size="16">37 numeric features</text>
+      <text x="411" y="320" fill="#66716b" font-size="16">Split at gaps over 30 sec</text>
+      <text x="411" y="348" fill="#66716b" font-size="16">147 low-coverage windows held out</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="685" y="166" width="250" height="225" rx="12" fill="#fffefa" stroke="#d6d4ca"/>
+      <rect x="685" y="166" width="250" height="7" rx="4" fill="#c18a4f"/>
+      <text x="711" y="210" fill="#a54b32" font-size="13" font-weight="700" letter-spacing="2">03  /  GROUP</text>
+      <text x="711" y="253" fill="#26302d" font-family="Georgia, serif" font-size="26">K-Means · k=4*</text>
+      <text x="711" y="292" fill="#66716b" font-size="16">40,349 train windows</text>
+      <text x="711" y="320" fill="#66716b" font-size="16">10,088 later holdout windows</text>
+      <text x="711" y="348" fill="#66716b" font-size="16">Impute + scale on train only</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="985" y="166" width="250" height="225" rx="12" fill="#fffefa" stroke="#d6d4ca"/>
+      <rect x="985" y="166" width="250" height="7" rx="4" fill="#a45d5a"/>
+      <text x="1011" y="210" fill="#a54b32" font-size="13" font-weight="700" letter-spacing="2">04  /  REVIEW</text>
+      <text x="1011" y="253" fill="#26302d" font-family="Georgia, serif" font-size="26">Unusual windows</text>
+      <text x="1011" y="292" fill="#66716b" font-size="16">99th-percentile references</text>
+      <text x="1011" y="320" fill="#66716b" font-size="16">3 adjacent windows = persistent</text>
+      <text x="1011" y="348" fill="#66716b" font-size="16">Compare reported event dates</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="1285" y="166" width="245" height="225" rx="12" fill="#26343a" stroke="#425258"/>
+      <rect x="1285" y="166" width="245" height="7" rx="4" fill="#59b7b6"/>
+      <text x="1311" y="210" fill="#88d0c4" font-size="13" font-weight="700" letter-spacing="2">05  /  EXPLORE</text>
+      <text x="1311" y="253" fill="#f1f0e8" font-family="Georgia, serif" font-size="26">Offline dashboard</text>
+      <text x="1311" y="292" fill="#c4ceca" font-size="16">Timeline + sensor patterns</text>
+      <text x="1311" y="320" fill="#c4ceca" font-size="16">Event and alert review</text>
+      <text x="1311" y="348" fill="#c4ceca" font-size="16">Filter + export window rows</text>
+    </g>
+  </g>
+
+  <rect x="70" y="433" width="1460" height="78" rx="10" fill="#e1e5de" stroke="#ccd3c9"/>
+  <circle cx="99" cy="472" r="7" fill="#a54b32"/>
+  <text x="120" y="466" fill="#37443e" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">Interpretation rule</text>
+  <text x="120" y="491" fill="#5d6962" font-family="Segoe UI, Arial, sans-serif" font-size="15">Clusters and distance alerts describe patterns for review; they do not confirm faults or predict failure.</text>
+  <text x="72" y="544" fill="#78827b" font-family="Segoe UI, Arial, sans-serif" font-size="13">* k=4 is provisional. Candidate comparison favored k=3 by sampled silhouette; event review is retrospective and in-sample.</text>
+</svg>

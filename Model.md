@@ -21,6 +21,8 @@
 | Reproducibility settings | `random_state=42`, `n_init=20` |
 | Saved model | `models/kmeans_pipeline_5min.joblib` |
 
+<p align="center"><img src="docs/assets/model_pipeline.svg" alt="Five-minute feature preparation and provisional K-Means model pipeline" width="100%"></p>
+
 ## What the model is intended to do
 
 The model groups five-minute windows with similar sensor-feature values. It offers a compact way to examine changes in compressor operation and identify groups or windows for further review. The model has no target column and is not trained to distinguish failures from normal operation.
