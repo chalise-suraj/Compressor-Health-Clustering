@@ -224,18 +224,23 @@ def require_outputs() -> bool:
 
 def event_spans(fig: go.Figure, start: pd.Timestamp, end: pd.Timestamp) -> None:
     spans = [
-        ("Event 1", "2020-04-18 00:00", "2020-04-18 23:59"),
-        ("Event 2", "2020-05-29 23:30", "2020-05-30 06:00"),
-        ("Event 3", "2020-06-05 10:00", "2020-06-07 14:30"),
-        ("Event 4", "2020-07-15 14:30", "2020-07-15 19:00"),
+        ("E1", "2020-04-18 00:00", "2020-04-18 23:59"),
+        ("E2", "2020-05-29 23:30", "2020-05-30 06:00"),
+        ("E3", "2020-06-05 10:00", "2020-06-07 14:30"),
+        ("E4", "2020-07-15 14:30", "2020-07-15 19:00"),
     ]
-    for label, raw_start, raw_end in spans:
+    for index, (label, raw_start, raw_end) in enumerate(spans):
         left, right = pd.Timestamp(raw_start), pd.Timestamp(raw_end)
         if left <= end and right >= start:
             fig.add_vrect(
                 x0=max(left, start), x1=min(right, end),
                 fillcolor="#F07878", opacity=.13, line_width=0,
-                annotation_text=label, annotation_position="top left",
+                annotation_text=label,
+                annotation_position="top left" if index % 2 == 0 else "bottom left",
+                annotation_font_size=10,
+                annotation_font_color=TEXT,
+                annotation_bgcolor="rgba(23, 33, 42, 0.92)",
+                annotation_borderpad=3,
             )
 
 
@@ -330,6 +335,8 @@ if active_view == "Overview":
         st.markdown('<div class="section-kicker">Behavior over time</div>', unsafe_allow_html=True)
         st.subheader("Operating-state timeline")
         st.caption("Cluster IDs represent learned groups; their numeric order does not indicate health severity.")
+        if show_events:
+            st.caption("Shaded event references are labeled E1–E4; see Event review for dates and source details.")
         timeline = filtered.sort_values("window_start")
         if len(timeline) > 6_000:
             step = math.ceil(len(timeline) / 6_000)
