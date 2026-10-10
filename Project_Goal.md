@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Stage-Historical%20prototype-B87924?style=for-the-badge" alt="Historical prototype">
 </p>
 
-> **Current status:** the four-notebook workflow, exploratory k=4 pipeline, historical monitoring outputs, and local Streamlit dashboard are available. The final cluster count and any operational alarm criteria are **not yet validated**.
+> **Current status:** the four-notebook workflow, exploratory k=4 pipeline, historical monitoring outputs, and local Streamlit dashboard are available. A Dockerfile is included to run the dashboard locally in Docker Desktop. The final cluster count and any operational alarm criteria are **not yet validated**.
 
 ## 1. Aim
 
@@ -82,7 +82,8 @@ These numbers summarize the current saved outputs. See [Model.md](Model.md) for 
 3. A reusable fitted preprocessing-plus-K-Means pipeline with its feature schema and metadata.
 4. Saved event, distance-alert, persistence, and transition summaries for retrospective review.
 5. An offline Streamlit dashboard that reads saved outputs, supports filtering, and exports selected window records.
-6. Project documentation that explains how to run the work, what the current model does, and where the evidence stops.
+6. Docker packaging for running the dashboard locally with its saved inputs; it does not train the model or require publishing the image to Docker Hub.
+7. Project documentation that explains how to run the work, what the current model does, and where the evidence stops.
 
 ## 7. Definition of a successful research prototype
 

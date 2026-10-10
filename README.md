@@ -89,6 +89,9 @@ The saved model is built from training data only. The latest 20% of eligible win
 | `models/` | Fitted pipeline and model metadata |
 | `reports/` | Generated figures and reports |
 | `app.py` | Offline Streamlit dashboard |
+| `Dockerfile` | Local Docker image for the dashboard |
+| `requirements-docker.txt` | Minimal dashboard-container dependencies |
+| `.dockerignore` | Keeps raw data and development files out of the Docker build context |
 | `docs/assets/` | Project banner and pipeline illustrations |
 | `Model.md` | Model method, results, artifacts, and interpretation limits |
 | `Project_Goal.md` | Aim, scope, success criteria, limitations, and next steps |

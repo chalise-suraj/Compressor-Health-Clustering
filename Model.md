@@ -29,7 +29,7 @@
 
 The model groups five-minute windows with similar sensor-feature values. It offers a compact way to examine changes in compressor operation and identify groups or windows for further review. The model has no target column and is not trained to distinguish failures from normal operation.
 
-The reusable artifact is a scikit-learn pipeline containing a median imputer, a robust scaler, and K-Means. The dashboard loads saved assignments and analysis outputs; it does not fit or update this pipeline.
+The reusable artifact is a scikit-learn pipeline containing a median imputer, a robust scaler, and K-Means. The dashboard loads saved assignments and analysis outputs; it does not fit or update this pipeline. The dashboard can run locally in the project environment or in the Docker container; containerization packages the viewer and saved inputs, not model training.
 
 ## Input features
 
@@ -93,6 +93,9 @@ In the saved run, the rule produced 484 single-window distance alerts; 7 windows
 | `data/processed/metropt_condition_monitoring_5min.csv` | Distances, thresholds, alert flags, and event overlaps |
 | `data/processed/metropt_reported_event_summary_5min.csv` | Window-level overlap summaries for reported events |
 | `data/processed/metropt_cluster_transitions_5min.csv` | Adjacent-window transition counts/proportions |
+| `Dockerfile` | Builds a local container image for the saved-results dashboard |
+| `requirements-docker.txt` | Minimal Python dependencies for the dashboard container |
+| `.dockerignore` | Excludes raw data, notebooks, and unused artifacts from the container build context |
 
 ## Limitations and next model work
 
