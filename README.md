@@ -44,6 +44,10 @@ The four documented events all occur in the training period. Their comparison is
 
 The project uses the [UCI MetroPT-3 dataset](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2B). The source description says 1 Hz, while the supplied CSV has a median observed interval of about **10 seconds**. There are **331 gaps longer than 30 seconds**, which are kept separate rather than interpolated across. The raw files remain under `data/raw/`.
 
+### Dataset attribution
+
+The MetroPT-3 dataset is distributed by UCI under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/). Please retain this attribution when reusing the dataset: Davari, N., Veloso, B., Ribeiro, R., & Gama, J. (2021). *MetroPT-3 Dataset*. UCI Machine Learning Repository. [https://doi.org/10.24432/C5VW3R](https://doi.org/10.24432/C5VW3R).
+
 Each model row represents a **five-minute window** with 37 numeric features: summaries of seven analog signals, fractions for eight digital states, and a state-transition count. Windows below the 80% coverage threshold remain available in metadata but are not assigned to a cluster.
 
 ## Run the dashboard

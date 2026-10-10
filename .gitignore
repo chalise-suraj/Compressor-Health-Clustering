@@ -1,0 +1,26 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local secrets and environment-specific files
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local logs and editor/OS files
+logs/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
