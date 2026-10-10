@@ -57,6 +57,17 @@ streamlit run app.py
 
 Open the local URL printed in the terminal. Stop any old server with **Ctrl+C** before restarting after app changes.
 
+### Run with Docker
+
+Build the dashboard image from the project root, then start it:
+
+```powershell
+docker build -t compressor-health-dashboard .
+docker run --rm -p 8501:8501 compressor-health-dashboard
+```
+
+Open [http://localhost:8501](http://localhost:8501). The image includes the saved dashboard inputs and model metadata; it does not include raw data or notebooks and does not train the model.
+
 ## Reproduce the notebooks
 
 Select `.venv` as the notebook kernel, then run each notebook top to bottom and save its output before moving on:
